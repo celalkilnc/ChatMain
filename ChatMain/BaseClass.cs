@@ -9,7 +9,7 @@ using RabbitMQ.Client;
 namespace ChatMain
 {
     internal class BaseClass
-    {
+    { //45
         #region Methods
         internal ConnectionFactory returnFactory(string uri)
         {
@@ -18,7 +18,7 @@ namespace ChatMain
             return factory;
         }
 
-        internal IModel returnChannel(ConnectionFactory factory) 
+        internal IModel returnChannel(ConnectionFactory factory)
         {
             var connection = factory.CreateConnection();// connection open
             var channel = connection.CreateModel(); // created channel
@@ -36,14 +36,16 @@ namespace ChatMain
             YourListBox.SetSelected(YourListBox.Items.Count - 1, true);
             YourListBox.SetSelected(YourListBox.Items.Count - 1, false);
         }
-        public void AddMessage(ListBox lst ,string publishTag, string _message)
+        public void AddMessage(ListBox lst, string publishTag, string _message)
         {
-            lst.Items.Add($"{publishTag}: {_message}        [{Time()}]");
+            string sentence = $"{publishTag}: {_message}                 [{Time()}]";
+            lst.Items.Add(sentence);
         }
         private string Time()
         {
-            return $"{DateTime.Now.Hour} : {DateTime.Now.Minute}";
+            return $"{DateTime.Now.Hour}.{DateTime.Now.Minute}";
         }
+
         #endregion
     }
 }
