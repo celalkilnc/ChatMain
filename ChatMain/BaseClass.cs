@@ -9,7 +9,7 @@ using RabbitMQ.Client;
 namespace ChatMain
 {
     internal class BaseClass
-    { //45
+    { 
         #region Methods
         internal ConnectionFactory returnFactory(string uri)
         {
