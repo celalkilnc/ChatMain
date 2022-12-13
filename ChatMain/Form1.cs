@@ -139,8 +139,6 @@ namespace ChatMain
                 btnSend_Click(btnSend, new EventArgs());
             }
         }
-        
-        
         #endregion
     }
 }
