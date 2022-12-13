@@ -18,7 +18,7 @@ namespace ChatMain
             return factory;
         }
 
-        internal IModel returnChannel(ConnectionFactory factory)
+        internal IModel returnChannel(ConnectionFactory factory) 
         {
             var connection = factory.CreateConnection();// connection open
             var channel = connection.CreateModel(); // created channel
