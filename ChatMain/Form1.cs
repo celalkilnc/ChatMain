@@ -30,6 +30,7 @@ namespace ChatMain
             InitializeComponent();
             panel1.Enabled = false;
             btnDisconnect.Visible = false;
+            comboBox1.Text = comboBox1.Items[0].ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace ChatMain
         private void btnConnect_Click(object sender, EventArgs e)
         {
             txtSelfID.Text = comboBox1.Text;
-            if (txtSelfID.Text != "" && txtFrndID.Text != "")
+            if (txtSelfID.Text != "" && txtFrndID.Text != "" && txtSelfID.Text != "Self ID")
             {
                 try
                 {
