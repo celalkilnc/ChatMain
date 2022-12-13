@@ -65,7 +65,7 @@ namespace ChatMain
             try
             {
                 baseClass.sendMessage(message, channel, frndRouteKey);
-                lstMessages.Items.Add($"You: {message}");
+                baseClass.AddMessage(lstMessages, "You", message);
                 txtMessage.Clear(); txtMessage.Focus();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
@@ -80,6 +80,7 @@ namespace ChatMain
             txtFrndID.ReadOnly = false;
             btnConnect.Text = "Connect";
             txtFrndID.Clear(); txtSelfID.Clear();
+            panel1.Enabled=false;
             comboBox1.Text = comboBox1.Items[0].ToString(); lstMessages.Items.Clear();
 
             btnDisconnect.Text = "Disconnect"; btnDisconnect.Visible = false;
@@ -101,7 +102,7 @@ namespace ChatMain
             subcriber.Received += (object senderr, BasicDeliverEventArgs ee) =>
             {
                 var message = Encoding.UTF8.GetString(ee.Body.ToArray());
-                lstMessages.Items.Add("Friend: " + message);
+                baseClass.AddMessage(lstMessages, "Friend", message);
 
                 channel.BasicAck(ee.DeliveryTag, false); //notifies rabbitmq that the message will be deleted
                 baseClass.lastMessage(lstMessages);
@@ -118,7 +119,7 @@ namespace ChatMain
             channel.QueueBind(frndqueueName, "logs-direct", frndRouteKey, null);
         }
         #endregion
-
+          
         #region Events
         private void btnSend_MouseEnter(object sender, EventArgs e)
         {
@@ -137,6 +138,8 @@ namespace ChatMain
                 btnSend_Click(btnSend, new EventArgs());
             }
         }
+        
+        
         #endregion
     }
 }

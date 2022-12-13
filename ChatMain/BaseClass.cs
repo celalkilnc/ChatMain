@@ -36,6 +36,14 @@ namespace ChatMain
             YourListBox.SetSelected(YourListBox.Items.Count - 1, true);
             YourListBox.SetSelected(YourListBox.Items.Count - 1, false);
         }
+        public void AddMessage(ListBox lst ,string publishTag, string _message)
+        {
+            lst.Items.Add($"{publishTag}: {_message}        [{Time()}]");
+        }
+        private string Time()
+        {
+            return $"{DateTime.Now.Hour} : {DateTime.Now.Minute}";
+        }
         #endregion
     }
 }
