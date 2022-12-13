@@ -27,23 +27,26 @@ namespace ChatMain
 
         internal void sendMessage(string message, IModel channel, string routeKey)
         {
+
             byte[] messageBody = Encoding.UTF8.GetBytes(message); //get the bytes of the defined message
             channel.BasicPublish("logs-direct", routeKey, null, messageBody);
         }
 
-        internal void lastMessage(ListBox YourListBox)
+        internal void lastMessage(ListBox listBox)
         {
-            YourListBox.SetSelected(YourListBox.Items.Count - 1, true);
-            YourListBox.SetSelected(YourListBox.Items.Count - 1, false);
+            //to see the change in the listbox
+            listBox.SetSelected(listBox.Items.Count - 1, true);
+            listBox.SetSelected(listBox.Items.Count - 1, false);
         }
+
         public void AddMessage(ListBox lst, string publishTag, string _message)
         {
-            string sentence = $"{publishTag}: {_message}                 [{Time()}]";
-            lst.Items.Add(sentence);
+            lst.Items.Add($"{publishTag}: {_message}                    [{Time()}]");
         }
+
         private string Time()
         {
-            return $"{DateTime.Now.Hour}.{DateTime.Now.Minute}";
+            return $"{DateTime.Now.Hour}.{DateTime.Now.Minute}"; 
         }
 
         #endregion
