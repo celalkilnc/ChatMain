@@ -34,7 +34,7 @@ namespace ChatMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            factory = baseClass.returnFactory("amqps://zmspyaxr:5I14joWiJqU4hTBd4JvVwtwswuH9PZI5@woodpecker.rmq.cloudamqp.com/zmspyaxr");
+            factory = baseClass.returnFactory(txtLink.Text);
             channel = baseClass.returnChannel(factory);
         }
 
@@ -53,6 +53,7 @@ namespace ChatMain
                     btnConnect.Text = "Connected";
                     btnDisconnect.Visible = true; btnDisconnect.Enabled = true;
                     panel1.Enabled = true;
+                    txtMessage.Focus();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.ToString()); }
             }

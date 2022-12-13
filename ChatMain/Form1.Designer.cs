@@ -40,6 +40,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.pnlConnValues = new System.Windows.Forms.Panel();
+            this.txtLink = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pnlConnValues.SuspendLayout();
             this.SuspendLayout();
@@ -183,12 +184,23 @@
             this.pnlConnValues.Size = new System.Drawing.Size(324, 73);
             this.pnlConnValues.TabIndex = 8;
             // 
+            // txtLink
+            // 
+            this.txtLink.Location = new System.Drawing.Point(342, 28);
+            this.txtLink.Name = "txtLink";
+            this.txtLink.Size = new System.Drawing.Size(153, 22);
+            this.txtLink.TabIndex = 9;
+            this.txtLink.Text = "amqps://zmspyaxr:5I14joWiJqU4hTBd4JvVwtwswuH9PZI5@woodpecker.rmq.cloudamqp.com/zm" +
+    "spyaxr";
+            this.txtLink.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(507, 696);
+            this.Controls.Add(this.txtLink);
             this.Controls.Add(this.pnlConnValues);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.panel1);
@@ -203,6 +215,7 @@
             this.pnlConnValues.ResumeLayout(false);
             this.pnlConnValues.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -220,6 +233,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.Panel pnlConnValues;
+        private System.Windows.Forms.TextBox txtLink;
     }
 }
 
