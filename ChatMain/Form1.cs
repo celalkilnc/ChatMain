@@ -36,7 +36,7 @@ namespace ChatMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            factory = baseClass.returnFactory(/*Connection String*/);
+            factory = baseClass.returnFactory("amqps://zmspyaxr:5I14joWiJqU4hTBd4JvVwtwswuH9PZI5@woodpecker.rmq.cloudamqp.com/zmspyaxr");
             channel = baseClass.returnChannel(factory);
         }
 
@@ -90,13 +90,14 @@ namespace ChatMain
         }
         #endregion
 
-        #region Connections
+        #region Connections 
         internal void SubcriberStarter()
         {
             string self_queueName = $"direct-queue-M{txtSelfID.Text}";
 
             channel.QueueDeclare(self_queueName, false, false, false);
             channel.BasicQos(0, 1, false);
+
             var subcriber = new EventingBasicConsumer(channel); //Creating consumer
             channel.BasicConsume(self_queueName, false, subcriber);
 
@@ -104,7 +105,6 @@ namespace ChatMain
             {
                 var message = Encoding.UTF8.GetString(ee.Body.ToArray());
                 baseClass.AddMessage(lstMessages, txtFrndID.Text, message);
-
                 channel.BasicAck(ee.DeliveryTag, false); //notifies rabbitmq that the message will be deleted
                 baseClass.lastMessage(lstMessages);
             };
