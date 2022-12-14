@@ -30,12 +30,13 @@ namespace ChatMain
             InitializeComponent();
             panel1.Enabled = false;
             btnDisconnect.Visible = false;
+            txtMessage.MaxLength = 100;
             comboBox1.Text = comboBox1.Items[0].ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            factory = baseClass.returnFactory("amqps://zmspyaxr:5I14joWiJqU4hTBd4JvVwtwswuH9PZI5@woodpecker.rmq.cloudamqp.com/zmspyaxr");
+            factory = baseClass.returnFactory(/*Connection String*/);
             channel = baseClass.returnChannel(factory);
         }
 
@@ -98,12 +99,11 @@ namespace ChatMain
             channel.BasicQos(0, 1, false);
             var subcriber = new EventingBasicConsumer(channel); //Creating consumer
             channel.BasicConsume(self_queueName, false, subcriber);
-            MessageBox.Show("Listening...", "Chat Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             subcriber.Received += (object senderr, BasicDeliverEventArgs ee) =>
             {
                 var message = Encoding.UTF8.GetString(ee.Body.ToArray());
-                baseClass.AddMessage(lstMessages, "Friend", message);
+                baseClass.AddMessage(lstMessages, txtFrndID.Text, message);
 
                 channel.BasicAck(ee.DeliveryTag, false); //notifies rabbitmq that the message will be deleted
                 baseClass.lastMessage(lstMessages);

@@ -41,12 +41,12 @@ namespace ChatMain
 
         public void AddMessage(ListBox lst, string publishTag, string _message)
         {
-            lst.Items.Add($"{publishTag}: {_message}                    [{Time()}]");
+            lst.Items.Add($"{publishTag}: {_message}              [{Time()}]");
         }
 
         private string Time()
         {
-            return $"{DateTime.Now.Hour}.{DateTime.Now.Minute}"; 
+            return DateTime.Now.Hour + "." + DateTime.Now.Minute;
         }
 
         #endregion

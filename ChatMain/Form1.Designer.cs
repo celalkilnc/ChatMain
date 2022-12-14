@@ -50,7 +50,7 @@
             this.btnConnect.Location = new System.Drawing.Point(178, 49);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(138, 23);
-            this.btnConnect.TabIndex = 4;
+            this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
@@ -62,7 +62,7 @@
             this.panel1.Controls.Add(this.lstMessages);
             this.panel1.Location = new System.Drawing.Point(12, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(485, 604);
+            this.panel1.Size = new System.Drawing.Size(997, 604);
             this.panel1.TabIndex = 1;
             // 
             // btnSend
@@ -70,7 +70,7 @@
             this.btnSend.BackColor = System.Drawing.Color.Black;
             this.btnSend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(444, 573);
+            this.btnSend.Location = new System.Drawing.Point(955, 573);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(39, 24);
             this.btnSend.TabIndex = 1;
@@ -84,8 +84,9 @@
             // 
             this.txtMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtMessage.Location = new System.Drawing.Point(0, 573);
+            this.txtMessage.MaxLength = 30000;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(438, 24);
+            this.txtMessage.Size = new System.Drawing.Size(949, 24);
             this.txtMessage.TabIndex = 0;
             this.txtMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMessage_KeyDown);
             // 
@@ -98,7 +99,7 @@
             this.lstMessages.ItemHeight = 19;
             this.lstMessages.Location = new System.Drawing.Point(1, 3);
             this.lstMessages.Name = "lstMessages";
-            this.lstMessages.Size = new System.Drawing.Size(482, 555);
+            this.lstMessages.Size = new System.Drawing.Size(993, 555);
             this.lstMessages.TabIndex = 2;
             // 
             // txtFrndID
@@ -150,6 +151,7 @@
             "26",
             "27",
             "34",
+            "35",
             "63",
             "70",
             "77",
@@ -157,12 +159,12 @@
             this.comboBox1.Location = new System.Drawing.Point(3, 49);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(138, 24);
-            this.comboBox1.TabIndex = 3;
+            this.comboBox1.TabIndex = 1;
             // 
             // btnDisconnect
             // 
             this.btnDisconnect.Enabled = false;
-            this.btnDisconnect.Location = new System.Drawing.Point(342, 57);
+            this.btnDisconnect.Location = new System.Drawing.Point(851, 57);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(155, 23);
             this.btnDisconnect.TabIndex = 7;
@@ -188,12 +190,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(507, 696);
+            this.ClientSize = new System.Drawing.Size(1021, 696);
             this.Controls.Add(this.pnlConnValues);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chat";
