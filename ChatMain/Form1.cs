@@ -37,6 +37,7 @@ namespace ChatMain
         private void Form1_Load(object sender, EventArgs e)
         {
             factory = baseClass.returnFactory("amqps://zmspyaxr:5I14joWiJqU4hTBd4JvVwtwswuH9PZI5@woodpecker.rmq.cloudamqp.com/zmspyaxr");
+            
             channel = baseClass.returnChannel(factory);
         }
 
