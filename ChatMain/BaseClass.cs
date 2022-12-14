@@ -27,7 +27,6 @@ namespace ChatMain
 
         internal void sendMessage(string message, IModel channel, string routeKey)
         {
-
             byte[] messageBody = Encoding.UTF8.GetBytes(message); //get the bytes of the defined message
             channel.BasicPublish("logs-direct", routeKey, null, messageBody);
         }
