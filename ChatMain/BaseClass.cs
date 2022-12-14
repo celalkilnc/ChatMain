@@ -46,7 +46,11 @@ namespace ChatMain
 
         private string Time()
         {
-            return DateTime.Now.Hour + "." + DateTime.Now.Minute;
+            string minute = DateTime.Now.Minute.ToString();
+            if (minute.Length < 2)
+                return DateTime.Now.Hour + ".0" + minute;
+
+            return DateTime.Now.Hour + "." + minute;
         }
 
         #endregion
