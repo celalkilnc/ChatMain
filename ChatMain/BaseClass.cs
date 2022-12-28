@@ -38,7 +38,7 @@ namespace ChatMain
             listBox.SetSelected(listBox.Items.Count - 1, false);
         }
 
-        public void AddMessage(ListBox lst, string publishTag, string _message)
+        internal void AddMessage(ListBox lst, string publishTag, string _message)
         {
             lst.Items.Add($"{publishTag}: {_message}              [{Time()}]");
         }
